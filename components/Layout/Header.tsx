@@ -33,23 +33,23 @@ const Header: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? 'bg-secondary py-2 shadow-xl' : 'bg-secondary/95 backdrop-blur-sm py-4 border-b border-white/10'
+        isScrolled ? 'bg-secondary py-3 shadow-xl' : 'bg-secondary/95 backdrop-blur-sm py-5 border-b border-white/10'
       }`}
     >
       <div className="flex items-center justify-between px-6 max-w-[1400px] mx-auto w-full">
-        {/* Logo Section */}
-        <div className="flex items-center gap-3">
-           {/* Industrial Logo Icon */}
-           <div className="relative h-12 w-12 border-2 border-primary flex items-center justify-center">
+        {/* Logo Section - Updated to Solid Red Box */}
+        <div className="flex items-center gap-4">
+           {/* Industrial Logo Mark */}
+           <div className="h-12 w-12 bg-primary flex items-center justify-center shadow-lg">
                <span className="text-white font-black text-2xl tracking-tighter">BF</span>
            </div>
-          <div className="flex flex-col">
-            <h2 className="text-white text-xl font-black tracking-tight uppercase leading-none">
+          <div className="flex flex-col justify-center">
+            <h2 className="text-white text-2xl font-black tracking-tighter uppercase leading-none">
               Baoforging
             </h2>
             <div className="flex items-center gap-2 mt-1">
-                 <div className="h-[2px] w-8 bg-primary"></div>
-                 <span className="text-gray-400 text-[10px] tracking-widest uppercase font-bold">Industrial Indonesia</span>
+                 <div className="h-[2px] w-6 bg-primary"></div>
+                 <span className="text-gray-400 text-[10px] tracking-[0.2em] uppercase font-bold">Industrial Indonesia</span>
             </div>
           </div>
         </div>
@@ -71,16 +71,19 @@ const Header: React.FC = () => {
         </div>
         
         {/* Right Actions */}
-        <div className="hidden lg:flex items-center gap-6 pl-6 border-l border-white/10">
-            {/* Language Switch */}
-             <button onClick={toggleLanguage} className="text-xs font-bold text-white hover:text-primary uppercase tracking-wider border border-white/20 px-3 py-1 hover:border-primary transition-colors">
+        <div className="hidden lg:flex items-center gap-4 pl-6 border-l border-white/10">
+            {/* Language Switch - Boxed Style */}
+             <button 
+                onClick={toggleLanguage} 
+                className="text-xs font-bold text-white hover:text-primary uppercase tracking-wider border border-white/20 px-3 py-2 hover:border-primary transition-colors"
+             >
                 {language}
              </button>
 
-            {/* CTA */}
+            {/* CTA - Solid Red */}
             <a
               href="#contact"
-              className="flex h-10 items-center justify-center bg-primary px-6 text-white text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-primary transition-all duration-300"
+              className="flex h-10 items-center justify-center bg-primary px-6 text-white text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-primary transition-all duration-300 shadow-lg shadow-primary/20"
             >
               {t('header.cta')}
             </a>
