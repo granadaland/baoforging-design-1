@@ -5,74 +5,75 @@ const About: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="w-full bg-background-light py-20 scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-            {/* Left Content */}
-          <div className="lg:w-1/2 flex flex-col gap-6">
-            <div>
-                <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block border-b-2 border-primary w-fit pb-1">
+    <section id="about" className="w-full relative bg-white pt-24 pb-0 overflow-hidden">
+      <div className="flex flex-col lg:flex-row min-h-[600px]">
+        
+        {/* Left Side - Image/Visual (Diagonal Cut) */}
+        <div className="relative w-full lg:w-1/2 bg-gray-100 min-h-[400px] lg:min-h-auto flex items-center justify-center p-12 overflow-hidden group">
+             {/* Background Image with diagonal clip */}
+             <div className="absolute inset-0 lg:right-[-100px] bg-secondary transform lg:-skew-x-12 origin-top overflow-hidden border-r-8 border-accent z-0">
+                <img 
+                    src="https://images.unsplash.com/photo-1565439396602-23c2a6327341?auto=format&fit=crop&q=80&w=2070" 
+                    alt="Factory Interior" 
+                    className="absolute inset-0 w-full h-full object-cover opacity-40 transform lg:skew-x-12 scale-110 group-hover:scale-105 transition-transform duration-1000"
+                />
+                <div className="absolute inset-0 bg-secondary/50"></div>
+             </div>
+
+             {/* Content on top of visual */}
+             <div className="relative z-10 text-center">
+                 <div className="inline-block border-4 border-white p-6">
+                    <h3 className="text-white text-5xl font-black uppercase tracking-tighter mb-1">
+                        BAO<span className="text-primary">FORGING</span>
+                    </h3>
+                    <p className="text-white font-bold tracking-[0.3em] text-xs uppercase border-t border-white/50 pt-2 mt-2">
+                        Authorized Joint Venture
+                    </p>
+                 </div>
+             </div>
+        </div>
+
+        {/* Right Side - Content */}
+        <div className="w-full lg:w-1/2 bg-white p-12 lg:p-20 flex flex-col justify-center">
+             <div className="flex items-center gap-3 mb-6">
+                 <span className="text-accent font-black text-lg border-b-2 border-accent pb-1">01</span>
+                 <span className="text-gray-500 font-bold uppercase tracking-widest text-sm">
                     {t('about.label')}
                 </span>
-                <h2 className="text-navy text-4xl md:text-5xl font-black leading-tight mt-4 uppercase">
-                    {t('hero.title')}
-                </h2>
-            </div>
-            
-            <p className="text-slate-600 text-lg leading-relaxed border-l-4 border-slate-200 pl-6 italic">
-              {t('about.subtitle')}
-            </p>
-            <p className="text-slate-600 leading-relaxed">
-              {t('about.description')}
-            </p>
-
-            <div className="grid grid-cols-2 gap-8 mt-4">
-                <div className="flex items-center gap-4">
-                     <span className="material-symbols-outlined text-4xl text-navy">verified</span>
-                     <div>
-                         <h5 className="font-bold text-navy">ISO 9001</h5>
-                         <p className="text-xs text-slate-500">Certified Quality</p>
-                     </div>
-                </div>
-                <div className="flex items-center gap-4">
-                     <span className="material-symbols-outlined text-4xl text-navy">timer</span>
-                     <div>
-                         <h5 className="font-bold text-navy">On Time</h5>
-                         <p className="text-xs text-slate-500">Delivery Guaranteed</p>
-                     </div>
-                </div>
-            </div>
-
-            <a 
-              href="#contact"
-              className="w-fit mt-6 px-8 py-4 bg-primary text-white font-bold uppercase tracking-wider rounded shadow-lg hover:bg-red-800 transition-colors"
-            >
-              {t('header.cta')}
-            </a>
-          </div>
-
-          {/* Right Image/Video */}
-          <div className="lg:w-1/2 relative">
-             <div className="relative rounded-sm overflow-hidden shadow-2xl border-8 border-white">
-                <img 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmin5JWcDWw1JyxRFtRuRsPzuXGlMePbSl50cH6bQ9LGvtGwmbcP25pOod3UFZKtck5usCuTnqjK7dbrHs53zGD1Zc0kvKhtooOC9IkfBp9t0GR6hqootTt-3Otdelgw7rbgu97RUUfP5-4qoDmDz7dPpKIwGx1zMJkzA-tU6odsqjtHKJwilUtwVtowiUULjCYTCb6lac1f4V_9gord2c9c6R0OglnG7nov6Y2d61naVPEY0KzZniaurX6i6TqXb2hwoQlkCGm_EC" 
-                alt="Welder working on metal fabrication" 
-                className="w-full object-cover h-[500px]"
-                />
-                <div className="absolute inset-0 bg-navy/20"></div>
-                
-                {/* Play Button Overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="h-20 w-20 bg-primary/90 rounded-full flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform shadow-xl animate-pulse">
-                        <span className="material-symbols-outlined text-4xl ml-1">play_arrow</span>
-                    </div>
-                </div>
              </div>
              
-             {/* Decorative element */}
-             <div className="absolute -bottom-6 -right-6 h-40 w-40 bg-navy z-[-1] pattern-dots"></div>
-          </div>
+             <h2 className="text-secondary text-4xl lg:text-5xl font-black uppercase leading-tight mb-8">
+                {t('about.title')} <br/>
+                <span className="text-primary">{t('about.subtitle')}</span>
+             </h2>
+
+             <p className="text-gray-600 font-medium leading-relaxed mb-8 text-lg border-l-4 border-gray-200 pl-6">
+                {t('about.description')}
+             </p>
+
+             {/* Stats Grid */}
+             <div className="grid grid-cols-2 gap-8 mb-10">
+                 <div>
+                     <h4 className="text-4xl font-black text-secondary mb-1">20+</h4>
+                     <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Years Experience</p>
+                 </div>
+                 <div>
+                     <h4 className="text-4xl font-black text-secondary mb-1">1.2M</h4>
+                     <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">Parts Forged</p>
+                 </div>
+             </div>
+
+             <div className="flex flex-col sm:flex-row gap-4">
+                <a href="#contact" className="inline-flex items-center justify-center h-12 px-8 bg-secondary text-white font-bold uppercase tracking-wider text-sm hover:bg-primary transition-colors">
+                    {t('header.cta')}
+                </a>
+                 <div className="flex items-center gap-2 px-6 h-12 border border-gray-200">
+                    <span className="material-symbols-outlined text-primary">location_on</span>
+                    <span className="text-sm font-bold text-secondary uppercase">Cikarang, Indonesia</span>
+                </div>
+             </div>
         </div>
+
       </div>
     </section>
   );

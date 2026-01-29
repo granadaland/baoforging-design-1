@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Header from './components/Layout/Header';
 import Hero from './components/Sections/Hero';
 import About from './components/Sections/About';
+import Services from './components/Sections/Services';
 import Capabilities from './components/Sections/Capabilities';
 import Technology from './components/Sections/Technology';
 import CTA from './components/Sections/CTA';
@@ -47,6 +48,9 @@ const App: React.FC = () => {
           <Hero />
           <ScrollReveal direction="left">
             <About />
+          </ScrollReveal>
+          <ScrollReveal direction="up">
+            <Services />
           </ScrollReveal>
           <ScrollReveal direction="right">
             <Capabilities />

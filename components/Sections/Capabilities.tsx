@@ -12,10 +12,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, isR
     const { t } = useLanguage();
     
     return (
-        <div className={`group relative flex flex-col p-8 transition-all duration-300 hover:-translate-y-2 border-b-4 ${
+        <div className={`group relative flex flex-col p-8 transition-all duration-300 hover:-translate-y-2 border-r border-slate-100 last:border-r-0 ${
             isRed 
-            ? 'bg-primary text-white border-primary' 
-            : 'bg-white text-navy border-transparent hover:border-primary shadow-xl'
+            ? 'bg-primary text-white' 
+            : 'bg-white text-navy hover:shadow-xl hover:z-10'
         }`}>
             <div className="mb-6">
                 <span className={`material-symbols-outlined text-5xl ${isRed ? 'text-white' : 'text-primary'}`}>
@@ -40,12 +40,11 @@ const Capabilities: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="capabilities" className="relative w-full bg-background-light z-30 pb-20">
-      {/* Negative Margin Container to Overlap Hero */}
-      <div className="max-w-7xl mx-auto px-6 -mt-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 shadow-2xl rounded-sm overflow-hidden">
+    <section id="capabilities" className="relative w-full bg-slate-50 py-24">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 shadow-lg rounded-3xl overflow-hidden border border-slate-100">
             {/* Intro Text Block (First Card) */}
-            <div className="bg-white p-10 flex flex-col justify-center border-b-4 border-transparent hover:border-primary transition-all">
+            <div className="bg-white p-10 flex flex-col justify-center border-r border-slate-100">
                 <div className="mb-4">
                     <span className="material-symbols-outlined text-5xl text-navy animate-spin-slow">settings</span>
                 </div>

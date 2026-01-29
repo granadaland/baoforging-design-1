@@ -6,7 +6,8 @@
     <title>Baoforging - Industrial Forging Excellence</title>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+    <!-- Updated Fonts: Manrope (Industrial/Display) & Inter (Clean Corporate Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -15,27 +16,64 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#d12e3e", 
-                        "secondary": "#101922",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#101922",
+                        "primary": "#d12e3e",  /* NEW: Industrial Red */
+                        "primary-dark": "#b91c1c",
+                        "accent": "#334155",   /* NEW: Slate/Dark Grey Metallic (Contrast for Red) */
+                        "secondary": "#111111", /* Dark Charcoal/Black */
                         "navy": "#0f172a",
+                        "background-light": "#ffffff",
+                        "background-gray": "#f4f4f4",
                     },
                     fontFamily: {
-                        "display": ["Public Sans", "sans-serif"],
-                        "sans": ["Public Sans", "sans-serif"]
+                        "display": ["Manrope", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
                     },
+                    boxShadow: {
+                        'industrial': '0 4px 0 0 rgba(0,0,0,0.1)',
+                    }
                 },
             },
         }
     </script>
     <style>
         body {
-            font-family: 'Public Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
+        
+        /* Global Heading Styles for that "Premium Industrial" look */
+        h1, h2, h3, h4, h5, h6, .brand-logo-custom {
+            font-family: 'Manrope', sans-serif;
+            letter-spacing: -0.01em; 
+            text-transform: uppercase; /* Industrial standard */
+        }
+
+        .clip-diagonal-r {
+            clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+        }
+        
+        .clip-diagonal-l {
+             clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        /* Slanted Section Separator */
+        .skewed-separator {
+            position: relative;
+        }
+        .skewed-separator::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background: white;
+            clip-path: polygon(0 100%, 100% 0, 100% 100%);
+        }
+
         .brand-logo-custom {
-            font-weight: 900;
-            letter-spacing: -0.5px;
+            font-weight: 800;
         }
     </style>
 <script type="importmap">
@@ -48,7 +86,7 @@
 }
 </script>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-200">
+<body class="bg-background-light text-slate-900 transition-colors duration-200">
     <div id="root"></div>
 </body>
 </html>
