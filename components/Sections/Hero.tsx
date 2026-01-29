@@ -5,9 +5,11 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative flex w-full flex-col justify-end min-h-[600px] overflow-hidden">
+    <section className="relative flex w-full min-h-[85vh] flex-col justify-center overflow-hidden bg-secondary">
+      {/* Background Video/Image */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/50 to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-navy/80 mix-blend-multiply z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-transparent z-10"></div>
         <video
           autoPlay
           muted
@@ -24,27 +26,33 @@ const Hero: React.FC = () => {
           />
         </video>
       </div>
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 py-20 md:py-32">
-        <div className="max-w-3xl flex flex-col gap-6 animate-in slide-in-from-bottom-10 fade-in duration-700">
-          <h1 className="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight">
+
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 pt-20 pb-40">
+        <div className="max-w-3xl flex flex-col gap-8 animate-in slide-in-from-left-10 fade-in duration-700">
+            <div className="flex items-center gap-2 mb-2">
+                <div className="h-[2px] w-12 bg-primary"></div>
+                <span className="text-primary font-bold uppercase tracking-widest text-sm">Industrial Excellence</span>
+            </div>
+          <h1 className="text-white text-5xl md:text-7xl font-bold leading-tight tracking-tight">
             {t('hero.title')}
           </h1>
-          <p className="text-slate-200 text-lg md:text-xl font-medium max-w-2xl leading-relaxed">
+          <p className="text-slate-300 text-lg md:text-xl font-normal max-w-xl leading-relaxed">
             {t('hero.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <a 
-              href="#capabilities"
-              className="flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-white text-base font-bold shadow-lg hover:bg-red-700 transition-all transform hover:scale-105"
+              href="#contact"
+              className="flex h-14 items-center justify-center rounded bg-primary px-10 text-white text-sm font-bold uppercase tracking-wider shadow-lg hover:bg-red-700 transition-all"
             >
-              {t('hero.cta_capabilities')}
+              {t('header.cta')}
             </a>
-            <a 
-              href="#about"
-              className="flex h-12 items-center justify-center rounded-lg bg-white/10 backdrop-blur-md border border-white/30 px-8 text-white text-base font-bold hover:bg-white/20 transition-all"
-            >
-              {t('hero.cta_about')}
-            </a>
+          </div>
+          
+          {/* Slider Indicators (Visual Only) */}
+          <div className="flex gap-2 mt-8">
+            <div className="w-8 h-1 bg-primary"></div>
+            <div className="w-8 h-1 bg-white/20"></div>
+            <div className="w-8 h-1 bg-white/20"></div>
           </div>
         </div>
       </div>

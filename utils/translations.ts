@@ -1,5 +1,6 @@
 export const translations = {
   en: {
+    read_more: 'Read More',
     header: {
       home: 'Home',
       about: 'About',
@@ -27,6 +28,8 @@ export const translations = {
       label: 'Our Equipment',
       title: 'Advanced Forging Capabilities',
       description: 'Equipped with state-of-the-art electro-hydraulic hammers and advanced heat treatment lines to deliver superior strength and durability.',
+      intro_title: 'Visit And Choose Our Best Services',
+      intro_desc: 'We provide top-tier forging services with advanced machinery tailored for your industrial needs.',
       item1_title: '2t Electro-hydraulic Hammer',
       item1_desc: 'Ideal for smaller, high-precision components requiring intricate detailing and consistent density.',
       item2_title: '5t Electro-hydraulic Hammer',
@@ -67,6 +70,7 @@ export const translations = {
     },
   },
   id: {
+    read_more: 'Baca Selengkapnya',
     header: {
       home: 'Beranda',
       about: 'Tentang Kami',
@@ -94,6 +98,8 @@ export const translations = {
       label: 'Peralatan Kami',
       title: 'Kapabilitas Penempaan Canggih',
       description: 'Dilengkapi dengan palu elektro-hidrolik canggih dan lini perlakuan panas (heat treatment) modern untuk menghasilkan kekuatan dan daya tahan superior.',
+      intro_title: 'Kunjungi Dan Pilih Layanan Terbaik Kami',
+      intro_desc: 'Kami menyediakan layanan penempaan tingkat atas dengan mesin canggih yang disesuaikan untuk kebutuhan industri Anda.',
       item1_title: 'Palu Elektro-hidrolik 2t',
       item1_desc: 'Ideal untuk komponen presisi tinggi yang lebih kecil yang memerlukan detail rumit dan kepadatan konsisten.',
       item2_title: 'Palu Elektro-hidrolik 5t',

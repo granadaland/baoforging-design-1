@@ -5,57 +5,58 @@ const Technology: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="w-full bg-navy py-20 relative overflow-hidden">
+    <section className="w-full bg-secondary py-24 relative overflow-hidden">
       <div 
-        className="absolute inset-0 opacity-10 pointer-events-none" 
+        className="absolute inset-0 opacity-5 pointer-events-none" 
         style={{ 
-          backgroundImage: "radial-gradient(#d12e3e 1px, transparent 1px)", 
-          backgroundSize: "32px 32px" 
+          backgroundImage: "linear-gradient(45deg, #d12e3e 25%, transparent 25%, transparent 50%, #d12e3e 50%, #d12e3e 75%, transparent 75%, transparent)", 
+          backgroundSize: "20px 20px" 
         }}
       ></div>
+      
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-          <div className="lg:w-1/2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/30 text-xs font-bold uppercase tracking-wider mb-6">
-              <span className="size-2 rounded-full bg-primary animate-pulse"></span>
-              {t('technology.label')}
-            </div>
-            <h3 className="text-white text-3xl md:text-5xl font-black leading-tight mb-6">
-              {t('technology.title')}
-            </h3>
-            <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-              {t('technology.description')}
-            </p>
-            <ul className="space-y-4 mb-8">
-              {[
-                t('technology.point1'),
-                t('technology.point2'),
-                t('technology.point3')
-              ].map((item, index) => (
-                <li key={index} className="flex items-center gap-3 text-slate-200">
-                  <span className="material-symbols-outlined text-primary">check_circle</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="lg:w-1/2 w-full">
-            <div className="relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl group">
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-              <img 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmin5JWcDWw1JyxRFtRuRsPzuXGlMePbSl50cH6bQ9LGvtGwmbcP25pOod3UFZKtck5usCuTnqjK7dbrHs53zGD1Zc0kvKhtooOC9IkfBp9t0GR6hqootTt-3Otdelgw7rbgu97RUUfP5-4qoDmDz7dPpKIwGx1zMJkzA-tU6odsqjtHKJwilUtwVtowiUULjCYTCb6lac1f4V_9gord2c9c6R0OglnG7nov6Y2d61naVPEY0KzZniaurX6i6TqXb2hwoQlkCGm_EC" 
-                alt="Close up of glowing red hot metal in heat treatment process" 
-                className="w-full h-full object-cover min-h-[400px] transform group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute bottom-0 left-0 p-8 z-20">
-                <div className="flex items-center gap-2 text-white/80 text-sm font-bold uppercase tracking-widest mb-2">
-                  <span className="material-symbols-outlined text-lg">thermostat</span>
-                  {t('technology.process_label')}
+        <div className="text-center mb-16">
+            <h2 className="text-white text-4xl md:text-5xl font-black uppercase mb-4">
+              WHY CHOOSE US?
+            </h2>
+            <div className="h-1 w-24 bg-primary mx-auto"></div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-navy/50 p-8 border border-slate-700 hover:border-primary transition-colors group">
+                <div className="mb-6 inline-block p-4 rounded bg-slate-800 text-white group-hover:bg-primary transition-colors">
+                     <span className="material-symbols-outlined text-4xl">thermostat</span>
                 </div>
-                <div className="h-1 w-20 bg-primary rounded-full"></div>
-              </div>
+                <h3 className="text-xl font-bold text-white mb-3 uppercase">{t('technology.title')}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                    {t('technology.description')}
+                </p>
+                <div className="w-full h-[1px] bg-slate-700 group-hover:bg-primary/50 transition-colors"></div>
             </div>
-          </div>
+
+            <div className="bg-navy/50 p-8 border border-slate-700 hover:border-primary transition-colors group">
+                 <div className="mb-6 inline-block p-4 rounded bg-slate-800 text-white group-hover:bg-primary transition-colors">
+                     <span className="material-symbols-outlined text-4xl">precision_manufacturing</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 uppercase">Advanced Machinery</h3>
+                <ul className="text-slate-400 text-sm leading-relaxed space-y-2">
+                    {[t('technology.point1'), t('technology.point2'), t('technology.point3')].map((point, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                             <span className="text-primary">•</span> {point}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <div className="bg-navy/50 p-8 border border-slate-700 hover:border-primary transition-colors group">
+                 <div className="mb-6 inline-block p-4 rounded bg-slate-800 text-white group-hover:bg-primary transition-colors">
+                     <span className="material-symbols-outlined text-4xl">verified_user</span>
+                </div>
+                <h3 className="text-xl font-bold text-white mb-3 uppercase">Quality Assurance</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">
+                   Strict adherence to ISO standards and rigorous testing protocols ensures every component meets global specifications.
+                </p>
+            </div>
         </div>
       </div>
     </section>

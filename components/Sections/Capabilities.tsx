@@ -1,72 +1,85 @@
 import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 
-interface EquipmentCardProps {
+interface ServiceCardProps {
   title: string;
   description: string;
-  image: string;
   icon: string;
+  isRed?: boolean;
 }
 
-const EquipmentCard: React.FC<EquipmentCardProps> = ({ title, description, image, icon }) => (
-  <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-800 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-    <div className="h-48 w-full bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
-      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors z-10"></div>
-      <div 
-        className="h-full w-full bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500" 
-        style={{ backgroundImage: `url('${image}')` }}
-      ></div>
-    </div>
-    <div className="p-6 flex flex-col flex-1">
-      <div className="mb-4 inline-flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-        <span className="material-symbols-outlined">{icon}</span>
-      </div>
-      <h4 className="mb-2 text-xl font-bold text-navy dark:text-white">{title}</h4>
-      <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-        {description}
-      </p>
-    </div>
-  </div>
-);
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, isRed }) => {
+    const { t } = useLanguage();
+    
+    return (
+        <div className={`group relative flex flex-col p-8 transition-all duration-300 hover:-translate-y-2 border-b-4 ${
+            isRed 
+            ? 'bg-primary text-white border-primary' 
+            : 'bg-white text-navy border-transparent hover:border-primary shadow-xl'
+        }`}>
+            <div className="mb-6">
+                <span className={`material-symbols-outlined text-5xl ${isRed ? 'text-white' : 'text-primary'}`}>
+                    {icon}
+                </span>
+            </div>
+            <h4 className={`mb-3 text-xl font-bold ${isRed ? 'text-white' : 'text-navy'}`}>
+                {title}
+            </h4>
+            <p className={`text-sm leading-relaxed mb-6 flex-grow ${isRed ? 'text-white/90' : 'text-slate-500'}`}>
+                {description}
+            </p>
+            <div className="mt-auto flex items-center gap-2 text-sm font-bold uppercase tracking-wider cursor-pointer">
+                <span>{t('read_more')}</span>
+                <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward_ios</span>
+            </div>
+        </div>
+    );
+};
 
 const Capabilities: React.FC = () => {
   const { t } = useLanguage();
 
-  const equipment = [
-    {
-      title: t('capabilities.item1_title'),
-      description: t('capabilities.item1_desc'),
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuALIbzJ6Ihz1JMcA4UYZzujRwwyfzSoeU8ORK6P8yB39YePAIvC5NyjUgbNoA7gmLDFuAEm-MEEmXjROI8HZJROL19qy9gqUFvgUTNeRY1LIOiXFu_61rb_J0qmjAJ4T7vI94Ts7cl9H7rLi5O59RBPR5Nbo3sugQL01dZSwQcYnmTSPMcFPKk06wVt01VDI6_9YGucdDPZT41Uy0YHGjNShw9BeKjb6CtwsR4uj6r_yWNEn5dAnYBFdd5l0WGNtE2MzWen0Q1LOwdF",
-      icon: "precision_manufacturing"
-    },
-    {
-      title: t('capabilities.item2_title'),
-      description: t('capabilities.item2_desc'),
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA-x28yNpuHfFVOUUqbOFvR-FO6NeVC5lDRa88RHTDXJdNF3ThOvCDjEdYFs0r6idqum78dxwxetSG_PXAVyPXw0SIO_DpkL1aoinUdr9DuXkSLPP-JWTOn3kgt_pMImLs_57LNg_bgwPhq2HExm-rUx_7DWzgL_UADd0LKWJJTAcg_22vian2z21JH-tF4WrN_yIS_sNTos1KPARw9ez5RpbztbgA6Alcem6Uxj_fasKZXedwYvMcFaLGVLPdFgg_cZ5BawaJ_41G0",
-      icon: "construction"
-    },
-    {
-      title: t('capabilities.item3_title'),
-      description: t('capabilities.item3_desc'),
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuANP6RV5s3A4oNvKQC4454qx0LEw3zkaWe3mgaq1JmQFpamZIEjulY-8ftQFhGzZGSAcRojkUhzASg1IJzRJKnMIefn2n1EM8QdGw98ix8Xm0ld3nxWO_afy4FsoEDdkSYLi3tDvLsuFN_rfFcsymVzIZGl6VAIpfvUhkNkoJ4OrStKQsnQ80ACo7yYhq1CIQlw0Gk5yqCk9TiRWAqMf6oniMWJd5wf3FEwJaiLOEL5UYUSIRT1ZivmLdKHbaHXcHny85lwv2TdA26F",
-      icon: "engineering"
-    }
-  ];
-
   return (
-    <section id="capabilities" className="w-full bg-white dark:bg-slate-900 py-20 border-y border-slate-200 dark:border-slate-800 scroll-mt-20">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="text-primary font-bold uppercase tracking-wider text-sm mb-3">{t('capabilities.label')}</h2>
-          <h3 className="text-navy dark:text-white text-3xl md:text-4xl font-black tracking-tight mb-4">{t('capabilities.title')}</h3>
-          <p className="text-slate-600 dark:text-slate-400 text-lg">
-            {t('capabilities.description')}
-          </p>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {equipment.map((item, index) => (
-            <EquipmentCard key={index} {...item} />
-          ))}
+    <section id="capabilities" className="relative w-full bg-background-light z-30 pb-20">
+      {/* Negative Margin Container to Overlap Hero */}
+      <div className="max-w-7xl mx-auto px-6 -mt-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 shadow-2xl rounded-sm overflow-hidden">
+            {/* Intro Text Block (First Card) */}
+            <div className="bg-white p-10 flex flex-col justify-center border-b-4 border-transparent hover:border-primary transition-all">
+                <div className="mb-4">
+                    <span className="material-symbols-outlined text-5xl text-navy animate-spin-slow">settings</span>
+                </div>
+                <h3 className="text-2xl font-black text-navy mb-4 leading-tight">
+                    {t('capabilities.intro_title')}
+                </h3>
+                <p className="text-slate-500 text-sm mb-6">
+                    {t('capabilities.intro_desc')}
+                </p>
+                <div className="flex items-center gap-2">
+                    <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white">
+                        <span className="material-symbols-outlined">arrow_forward</span>
+                    </div>
+                    <span className="text-sm font-bold text-navy uppercase">{t('read_more')}</span>
+                </div>
+            </div>
+
+            {/* Service Cards */}
+            <ServiceCard 
+                title={t('capabilities.item1_title')}
+                description={t('capabilities.item1_desc')}
+                icon="precision_manufacturing"
+                isRed={true}
+            />
+             <ServiceCard 
+                title={t('capabilities.item2_title')}
+                description={t('capabilities.item2_desc')}
+                icon="construction"
+            />
+             <ServiceCard 
+                title={t('capabilities.item3_title')}
+                description={t('capabilities.item3_desc')}
+                icon="engineering"
+            />
         </div>
       </div>
     </section>
